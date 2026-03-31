@@ -1,0 +1,129 @@
+/* ===================================
+   TaskFlow — Global Styles
+   Aesthetic: Soft editorial, warm cream
+   & sage green palette
+   =================================== */
+
+:root {
+  /* Core palette */
+  --cream:        #FAF7F2;
+  --cream-dark:   #F0EBE1;
+  --parchment:    #E8E0D0;
+  --sage:         #7A9E87;
+  --sage-light:   #A8C5B4;
+  --sage-dark:    #4E7A60;
+  --terracotta:   #C97B5C;
+  --dusty-rose:   #D4929A;
+  --muted-gold:   #C9A96E;
+  --slate:        #4A5568;
+  --slate-light:  #718096;
+  --charcoal:     #2D3748;
+
+  /* Priority colors */
+  --priority-high:   #C97B5C;
+  --priority-medium: #C9A96E;
+  --priority-low:    #7A9E87;
+
+  /* Status colors */
+  --status-pending:     #A0AEC0;
+  --status-in-progress: #C9A96E;
+  --status-done:        #7A9E87;
+
+  /* Typography */
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+
+  /* Spacing */
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+  --radius-xl:  32px;
+
+  /* Shadows */
+  --shadow-sm:  0 1px 3px rgba(74,85,104,0.08), 0 1px 2px rgba(74,85,104,0.04);
+  --shadow-md:  0 4px 16px rgba(74,85,104,0.10), 0 2px 6px rgba(74,85,104,0.06);
+  --shadow-lg:  0 12px 40px rgba(74,85,104,0.14), 0 4px 12px rgba(74,85,104,0.08);
+  --shadow-card: 0 2px 12px rgba(122,158,135,0.10);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--cream);
+  color: var(--charcoal);
+  min-height: 100vh;
+  line-height: 1.6;
+  background-image:
+    linear-gradient(rgba(250,247,242,0.88), rgba(250,247,242,0.88)),
+    url('./todo-background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--cream-dark); }
+::-webkit-scrollbar-thumb { background: var(--sage-light); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--sage); }
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Transitions */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.slide-up-enter-from,
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+}
+
+/* List transitions */
+.list-enter-active {
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.list-leave-active {
+  transition: all 0.25s ease;
+  position: absolute;
+  width: 100%;
+}
+.list-enter-from {
+  opacity: 0;
+  transform: translateY(-12px);
+}
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(20px);
+}
+.list-move {
+  transition: transform 0.35s ease;
+}
