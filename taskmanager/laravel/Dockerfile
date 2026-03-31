@@ -1,4 +1,4 @@
-FROM php:8.2-cli
+FROM php:8.3-cli
 
 RUN apt-get update && apt-get install -y \
     git curl zip unzip libonig-dev libzip-dev \
@@ -16,4 +16,4 @@ RUN php artisan config:clear
 
 EXPOSE 10000
 
-CMD php artisan serve --host=0.0.0.0 --port=10000
+CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port=${PORT:-10000}"]
